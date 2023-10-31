@@ -12,6 +12,7 @@ import numpy as np
 import torch
 from torch import optim
 from torch.cuda.amp import GradScaler
+from torch.distributed import destroy_process_group
 
 try:
     import wandb
@@ -506,3 +507,4 @@ def copy_codebase(args):
 
 if __name__ == "__main__":
     main(sys.argv[1:])
+    destroy_process_group()
